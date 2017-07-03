@@ -1,0 +1,62 @@
+安装完成后 在命令行输入：
+$ git config --global user.name "Your Name"
+$ git config --global user.email "email@example.com"
+
+创建版本库 
+
+一.创建版本库目录
+$ mkdir learngit
+$ cd learngit
+$ pwd
+/Users/michael/learngit
+
+初始化命令把目录变成git可以管理的仓库
+$ git init
+
+文件添加都版本库
+1. $ git add 文件名称及后缀  注意git语法全是小写，文件名称不区分大小写
+2. $ git commit -m "提交备注"
+ps：add  可多次add 文件  一次性  将多个文件 commit
+例如：
+$ git add file1.txt
+$ git add file2.txt file3.txt
+$ git commit -m "add 3 files."
+二、时光机穿梭
+1.版本回退
+$ git log 命令显示从最近到最远的提交日志
+$ git reset --hard HEAD^ 退回到上一个版本
+$ git reset --hard commit id(版本号) 退回到指定版本
+$ git reflog 查看 记录你的每一次命令
+$ cat 文名  查看文件内容
+
+$ git status 查看版本仓库当前状态   哪些文件新增  哪些文件修改了
+$ git diff  文件名称及后缀 查看文件的不同
+
+2.暂存区和工作区
+工作区是指在安装完成后 通过命令创建的版本库目录 这里是learngit文件夹
+版本库 .git 隐藏目录  是Git的版本库
+
+$ git add 是将文件提交到 暂存区 Stage
+$ git commit 是将已提交的文件提交到分支 master
+
+3.管理修改
+$ git diff HEAD -- 文名及后缀  查看工作区和版本库里面最新版本的区别。类似 svn中diff with previous version
+4.撤销修改
+$ git checkout -- 文名及后缀 可以丢弃工作区的修改
+$ git reset HEAD 文名及后缀  可以把暂存区的修改撤销并放到工作区
+5.删除文件
+$ git rm 文名及后缀
+
+三、远程仓库
+创建SSH Key 在主目录下 看看有没有.ssh目录
+$ ssh-keygen -t rsa -C "youremail@example.com"
+1.添加远程库
+$ git remote add origin git@github.com:michaelliao/learngit.git
+ps：michaelliao  是自己的github的账户名
+$ git push -u origin master  本地库 推送到远程库上的命令 第一次推送时  加-u
+之后 省略 -u即可  $ git push origin master 
+
+2.从远程库克隆
+
+
+
